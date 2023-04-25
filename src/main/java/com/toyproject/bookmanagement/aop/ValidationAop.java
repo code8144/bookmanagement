@@ -18,31 +18,36 @@ import com.toyproject.bookmanagement.exception.CustomException;
 public class ValidationAop {
 
 	@Pointcut("@annotation(com.toyproject.bookmanagement.aop.annotation.ValidAspect)")
-	private void pointCut() {
-	}
-
+	private void pointCut() {}
+	
 	@Around("pointCut()")
 	public Object around(ProceedingJoinPoint joinPoint) throws Throwable {
-
-		Object[] args = joinPoint.getArgs(); //재사용을 하기위해서 변수에 담아줌 
+		
+		Object[] args = joinPoint.getArgs();
 		BindingResult bindingResult = null;
-
-		for (Object arg : args) { // 반복을 돌려서 bindingResult 객체찾기, 1번째 arg는 dto 2번때 arg는 binding
-			if (arg.getClass() == BeanPropertyBindingResult.class) {
-				bindingResult = (BeanPropertyBindingResult) arg; // 다운캐스팅
-
+		
+		for(Object arg : args) {
+			if(arg.getClass() == BeanPropertyBindingResult.class) {
+				bindingResult = (BeanPropertyBindingResult) arg;
 			}
 		}
-		// bindingresult에 에러에 대한 정보들이 담겨있음 
-		if (bindingResult.hasErrors()) {
-			Map<String, String> errorMap = new HashMap<>(); //비어있는 맵을 만들어서 key, value를 가지고 띄워줄 예외 메세지 구현 
+		
+		if(bindingResult.hasErrors()) {
+			Map<String, String> errorMap = new HashMap<>();
+			
 			bindingResult.getFieldErrors().forEach(error -> {
 				errorMap.put(error.getField(), error.getDefaultMessage());
 			});
+			
 			throw new CustomException("Validation Failed", errorMap);
-
 		}
+		
 		return joinPoint.proceed();
 	}
-
 }
+
+
+
+
+
+

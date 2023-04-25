@@ -7,8 +7,7 @@ spring:
     
 mybatis:
   mapper-locations:
-  - /mappers/*.xml
-  
+    - /mappers/*.xml
+
 jwt:
-  secret: KSZNTpEdJVYeTbwkHgVnz2eEK1mhx2y3NVM34IsMiDadGN4cDe4CkSh3i97geqkH
-  
+  secret: ezV2FMXHX7bzV8eEL9lHf0MLSCnB5M6gtjcHmokIxABqjplbHtRypoN8H2vMTxVO
