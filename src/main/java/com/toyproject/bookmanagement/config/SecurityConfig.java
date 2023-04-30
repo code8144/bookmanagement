@@ -40,6 +40,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		http.authorizeRequests()
 			.antMatchers("/auth/**")
 			.permitAll()
+			.antMatchers("/admin/**")
+			.hasRole("ADMIN") // 앞에껄 떼고 가지고 왔기때문이지 원래는 role써야함 
 			.anyRequest()
 			.authenticated()
 			.and()

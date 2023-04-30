@@ -3,8 +3,8 @@ package com.toyproject.bookmanagement.dto.book;
 import lombok.Builder;
 import lombok.Data;
 
-@Builder
 @Data
+@Builder
 public class SearchBookRespDto {
 	private int bookId;
 	private String bookName;
@@ -16,4 +16,5 @@ public class SearchBookRespDto {
 	private String categoryName;
 	private String coverImgUrl;
 	private int likeCount;
+
 }

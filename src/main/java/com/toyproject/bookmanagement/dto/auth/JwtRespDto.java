@@ -8,4 +8,5 @@ import lombok.Data;
 public class JwtRespDto {
 	private String grantType;
 	private String accessToken;
+
 }

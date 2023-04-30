@@ -12,4 +12,5 @@ import lombok.NoArgsConstructor;
 public class Publisher {
 	private int publisherId;
 	private String publisherName;
+
 }

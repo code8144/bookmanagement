@@ -1,5 +1,6 @@
 package com.toyproject.bookmanagement.entity;
 
+
 import com.toyproject.bookmanagement.dto.book.GetBookRespDto;
 import com.toyproject.bookmanagement.dto.book.SearchBookRespDto;
 
@@ -39,7 +40,6 @@ public class Book {
 				.likeCount(likeCount)
 				.build();
 	}
-	
 	public GetBookRespDto toGetBookDto() {
 		return GetBookRespDto.builder()
 				.bookId(bookId)
@@ -50,4 +50,5 @@ public class Book {
 				.coverImgUrl(coverImgUrl)
 				.build();
 	}
+
 }

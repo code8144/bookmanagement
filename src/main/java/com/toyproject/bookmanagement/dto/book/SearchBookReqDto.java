@@ -9,4 +9,5 @@ public class SearchBookReqDto {
 	private int page;
 	private String searchValue;
 	private List<Integer> categoryIds;
+
 }

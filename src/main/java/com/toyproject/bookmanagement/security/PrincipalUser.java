@@ -24,41 +24,47 @@ public class PrincipalUser implements UserDetails {
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
 		List<SimpleGrantedAuthority> authorities = new ArrayList<>();
-		
-		this.authorities.forEach(authority -> {
-			authorities.add(new SimpleGrantedAuthority(authority.getRole().getRoleName()));
+		this.authorities.forEach(authority ->{
+			authorities.add(new SimpleGrantedAuthority(authority.getRole().getRoleName())); //리스트안에 authority들이 들어있고 이것들은 각각 role을 가지고 있음 
+			
+			
 		});
-		
 		return authorities;
 	}
 
 	@Override
 	public String getPassword() {
-		return password;
+
+		return password; // 암호화된 비밀번호
 	}
 
 	@Override
 	public String getUsername() {
+
 		return email;
 	}
 
 	@Override
 	public boolean isAccountNonExpired() {
+
 		return true;
 	}
 
 	@Override
 	public boolean isAccountNonLocked() {
+
 		return true;
 	}
 
 	@Override
 	public boolean isCredentialsNonExpired() {
+
 		return true;
 	}
 
 	@Override
 	public boolean isEnabled() {
+
 		return true;
 	}
 

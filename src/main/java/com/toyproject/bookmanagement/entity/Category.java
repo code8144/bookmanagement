@@ -21,4 +21,5 @@ public class Category {
 				.categoryName(categoryName)
 				.build();
 	}
+
 }

@@ -1,7 +1,7 @@
 package com.toyproject.bookmanagement.controller.advice;
 
+
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
@@ -12,12 +12,9 @@ import com.toyproject.bookmanagement.exception.CustomException;
 public class AdviceController {
 	
 	@ExceptionHandler(CustomException.class)
-	public ResponseEntity<?> customException(CustomException e) {
+	public ResponseEntity<?> CustomException(CustomException e){ // 던져진 customException 매개변수 전달
 		return ResponseEntity.badRequest().body(new ErrorResponseDto<>(e.getMessage(), e.getErrorMap()));
 	}
-	
-	@ExceptionHandler(UsernameNotFoundException.class)
-	public ResponseEntity<?> customException(UsernameNotFoundException e) {
-		return ResponseEntity.badRequest().body(new ErrorResponseDto<>(e.getMessage(), null));
-	}
+
+
 }

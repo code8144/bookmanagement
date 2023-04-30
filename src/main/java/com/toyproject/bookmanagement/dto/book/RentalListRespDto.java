@@ -10,4 +10,6 @@ public class RentalListRespDto {
 	private String bookName;
 	private int userId;
 	private boolean rentalStatus;
+
 }
+

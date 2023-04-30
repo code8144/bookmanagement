@@ -6,8 +6,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 @Data
 public class RentalList {
 	private int bookListId;
@@ -22,4 +22,8 @@ public class RentalList {
 				.rentalStatus(userId == 0)
 				.build();
 	}
+
+	
+	
+
 }
